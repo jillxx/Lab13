@@ -5,7 +5,11 @@ import com.game.gc.Validator;
 
 public class RoshamboApp {
 
+	static int playerWin = 0;//global variable
+	static int playerLoss = 0;
+
 	public static void main(String[] args) {
+
 		Scanner scan = new Scanner(System.in);
 		String matchingResult;
 		String cont = "y";
@@ -64,26 +68,27 @@ public class RoshamboApp {
 	// uc userChoice mr = matching Result
 	private static void matchResult(String uc, String mr, String player, String opponent) {
 		// match generated random number to rashambo enterd by user for all cases
-		if (Character.toUpperCase(uc.charAt(0)) == mr.charAt(0))
+		if (Character.toUpperCase(uc.charAt(0)) == mr.charAt(0)) {
 			System.out.println("Draw!");
-
-		else if (uc.equals("Paper") && mr.equals("Rock"))
+		} else if (uc.equals("Paper") && mr.equals("Rock")) {
 			System.out.println(player + " Wins!");
-
-		else if (mr.equals("Paper") && uc.equals("Rock"))
+			playerWin++;
+		} else if (mr.equals("Paper") && uc.equals("Rock")) {
 			System.out.println(opponent + " Wins!");
-
-		else if (uc.equals("Paper") && mr.equals("Scissors"))
+			playerLoss++;
+		} else if (uc.equals("Paper") && mr.equals("Scissors")) {
 			System.out.println(opponent + " Wins!");
-
-		else if (mr.equals("Paper") && uc.equals("Scissors"))
+			playerLoss++;
+		} else if (mr.equals("Paper") && uc.equals("Scissors")) {
 			System.out.println(player + " Wins!");
-
-		else if (uc.equals("Scissors") && mr.equals("Rock"))
+			playerWin++;
+		} else if (uc.equals("Scissors") && mr.equals("Rock")) {
 			System.out.println(opponent + " Wins!");
-
-		else if (mr.equals("Scissors") && uc.equals("Rock"))
+			playerLoss++;
+		} else if (mr.equals("Scissors") && uc.equals("Rock")) {
 			System.out.println(player + " Wins!");
-
+			playerWin++;
+		}
+		System.out.println("You have won " + playerWin + " times and loss " + playerLoss + " times.");
 	}
 }
